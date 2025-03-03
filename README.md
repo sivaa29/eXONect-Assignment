@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# Country, State, and City Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This project is a simple Country, State, and City Management System built using ReactJS and JavaScript, without any external libraries or npm packages. The application allows users to add, edit, and delete countries, states, and cities in a hierarchical structure.
 
-## Available Scripts
+## Features
+### Country Management
+- **Add a Country**: Users can add a new country.
+- **Edit a Country**: Users can edit an existing country name with a confirmation dialog.
+- **Delete a Country**: Users can delete a country, along with all associated states and cities, with a confirmation dialog.
 
-In the project directory, you can run:
+### State Management
+- **Add a State**: States can be added to a specific country.
+- **Edit a State**: Users can edit an existing state name with a confirmation dialog.
+- **Delete a State**: Users can delete a state, along with all associated cities, with a confirmation dialog.
 
-### `npm start`
+### City Management
+- **Add a City**: Cities can be added under a specific state.
+- **Delete a City**: Users can delete a city with a confirmation dialog.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## User Interface (UI) Design
+### Main Screen
+- Button to add a new country.
+- List of existing countries with options to:
+  - Edit the country name.
+  - Delete the country.
+  - View and manage states for the country.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### State Management Screen
+- Section for each country to:
+  - Add a new state.
+  - Edit existing states.
+  - Delete states (with confirmation).
 
-### `npm test`
+### City Management Screen
+- Section for each state to:
+  - Add a new city.
+  - Delete existing cities (with confirmation).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Component Breakdown
+### `App.js`
+- Manages the state of countries, states, and cities.
+- Handles adding, updating, and deleting countries.
+- Passes down data and functions to child components.
 
-### `npm run build`
+### `CountryList.js`
+- Displays a list of countries.
+- Allows adding, editing, and deleting a country.
+- Displays a list of states for each country and links to manage them.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `StateList.js`
+- Displays a list of states for a specific country.
+- Allows adding, editing, and deleting states.
+- Displays a list of cities for each state and links to manage them.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `CityList.js`
+- Displays a list of cities for a specific state.
+- Allows adding and deleting cities.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Business Logic
+### Adding New Entities
+- Users can add a country, state, or city through a prompt or form-based UI.
+- The new entity is stored in the data structure and displayed in the UI.
 
-### `npm run eject`
+### Editing Existing Entities
+- Users can edit country, state, or city names.
+- A confirmation dialog is shown before updating.
+- UI updates upon successful edit.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Deleting Entities
+- Users can delete a country, state, or city with confirmation dialogs.
+- Deleting a country removes associated states and cities.
+- Deleting a state removes associated cities.
+- UI updates after deletion.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Confirmation Alerts
+- `window.confirm()` is used before deleting an entity.
+- Prompts are used to confirm name edits.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Technologies Used
+- **ReactJS**: For building the UI.
+- **JavaScript (ES6)**: For handling state management, event handling, and data operations.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Development Flow
+1. **Set up React App**: Initialize the project using Create React App.
+2. **Create Components**: Develop individual components for countries, states, and cities.
+3. **State Management**: Use React's `useState` hook to manage the application state.
+4. **Data Flow**: Pass data and functions through props.
+5. **User Interaction**: Use prompts for adding/editing and confirm dialogs for deletion.
 
-## Learn More
+## Testing and Validation
+### Functional Testing
+- Ensure add, edit, and delete operations work correctly.
+- Verify that confirmation dialogs appear and function properly.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### UI Testing
+- Confirm that UI updates correctly after add, edit, and delete operations.
+- Ensure the hierarchical structure (Country → State → City) is correctly displayed and managed.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## How to Run the Project
 
-### Code Splitting
+1. Install dependencies (if any, though no external libraries are used):
+   ```bash
+   npm install
+   ```
+2. Start the application:
+   ```bash
+   npm start
+   ```
+5. Open `http://localhost:3000/` in your browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
+This project is licensed under the MIT License.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
